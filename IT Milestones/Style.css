@@ -1,0 +1,154 @@
+/* ==========================================
+   IT3203 Web servers - Unified Stylesheet
+   ========================================== */
+
+/* --- 1. ELEMENT SELECTORS --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1b263b;
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+footer {
+    background-color: #1b263b;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #4ea8de;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #ffffff;
+}
+
+th, td {
+    border: 1px solid #dcdcdc;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #415a77;
+    color: #ffffff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1rem 0;
+    border: 1px solid #cccccc;
+    display: block;
+}
+
+/* --- 2. CLASS SELECTORS --- */
+.navbar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Fixes navigation wrapping on smaller screens */
+    background-color: #0d1b2a;
+    padding: 0.75rem;
+    list-style: none;
+    margin: 0;
+}
+
+.navbar li {
+    margin: 0.25rem 1rem;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #415a77;
+    color: #e0fbfc;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Media query to stack sidebar below main content on smaller screens */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+    background-color: #e0e1dd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #1b263b;
+}
+
+.card {
+    border: 1px solid #cccccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+/* --- 3. ID SELECTORS --- */
+#site-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+#main-heading {
+    color: #1b263b;
+    border-bottom: 2px solid #415a77;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+#highlight-box {
+    background-color: #e8f4f8;
+    border: 1px dashed #0077b6;
+    padding: 1.2rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+}
