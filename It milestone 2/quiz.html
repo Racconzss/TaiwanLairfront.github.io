@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Server Architectures | Interactive Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="site-title">The Evolution of Web Server Architectures</h1>
+        <p>IT 3203 Knowledge Assessment Quiz</p>
+    </header>
+
+    <ul class="navbar">
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="Topics1.html">Foundations & Servers</a></li>
+        <li><a href="Topics2.html">Cloud & Green Power</a></li>
+        <li><a href="Concepts.html">Key Concepts</a></li>
+        <li><a href="References.html">References</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Quiz.html">Quiz App</a></li>
+    </ul>
+
+    <div class="container">
+        <main class="main-content">
+            <h2 id="main-heading">Web Server Architectures Quiz</h2>
+            <p>Test your knowledge on web server foundations, cloud virtualization, green power management, and hosting paradigms.</p>
+
+            <form id="quiz-form">
+                <div class="card">
+                    <p><strong>1. What primary performance metric evaluates how many requests a web server can handle per second?</strong></p>
+                    <label><input type="radio" name="q1" value="wrong"> Latency</label><br>
+                    <label><input type="radio" name="q1" value="correct"> Throughput</label><br>
+                    <label><input type="radio" name="q1" value="wrong"> Bandwidth</label>
+                </div>
+
+                <div class="card">
+                    <p><strong>2. Historically, enterprise bare-metal physical servers operated at what percentage of total processing capacity during daily operations?</strong></p>
+                    <label><input type="radio" name="q2" value="wrong"> 80% to 95%</label><br>
+                    <label><input type="radio" name="q2" value="wrong"> 40% to 60%</label><br>
+                    <label><input type="radio" name="q2" value="correct"> 5% to 15%</label>
+                </div>
+
+                <div class="card">
+                    <p><strong>3. What software layer creates and runs virtual machines by partitioning physical hardware into isolated instances?</strong></p>
+                    <label><input type="radio" name="q3" value="correct"> Hypervisor</label><br>
+                    <label><input type="radio" name="q3" value="wrong"> Compiler</label><br>
+                    <label><input type="radio" name="q3" value="wrong"> Firewall</label>
+                </div>
+
+                <div class="card">
+                    <p><strong>4. What energy optimization technique reduces CPU power consumption by dynamically scaling clock frequency and voltage?</strong></p>
+                    <label><input type="radio" name="q4" value="wrong"> DHT (Distributed Hash Table)</label><br>
+                    <label><input type="radio" name="q4" value="correct"> DVFS (Dynamic Voltage/Frequency Scaling)</label><br>
+                    <label><input type="radio" name="q4" value="wrong"> GPIO Pin Switching</label>
+                </div>
+
+                <div class="card">
+                    <p><strong>5. What lightweight OS-level virtualization packages software code and runtime libraries while sharing the host kernel?</strong></p>
+                    <label><input type="radio" name="q5" value="wrong"> Bare-Metal Server</label><br>
+                    <label><input type="radio" name="q5" value="wrong"> Virtual Machine</label><br>
+                    <label><input type="radio" name="q5" value="correct"> Containerization (e.g., Docker)</label>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <button type="button" onclick="gradeQuiz()" style="background-color: #415a77; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Submit Quiz</button>
+                    <button type="reset" onclick="resetQuiz()" style="background-color: #e0e1dd; color: #333; padding: 0.75rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; margin-left: 1rem;">Reset</button>
+                </div>
+            </form>
+
+            <div id="results-box" style="margin-top: 2rem; padding: 1.5rem; border-radius: 6px; display: none;"></div>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Quiz Instructions</h3>
+            <p>Select one answer for each of the five questions above, then click <strong>Submit Quiz</strong> to calculate your score instantly.</p>
+        </aside>
+    </div>
+
+    <footer>
+        <p>IT 3203 Class Project. Visit the official course website: <a href="https://ksuweb.github.io/IT3203/" target="_blank">KSU IT 3203</a></p>
+    </footer>
+
+    <script>
+        function gradeQuiz() {
+            let score = 0;
+            const totalQuestions = 5;
+            
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            const q5 = document.querySelector('input[name="q5"]:checked');
+
+            if (!q1 || !q2 || !q3 || !q4 || !q5) {
+                alert("Please answer all 5 questions before submitting!");
+                return;
+            }
+
+            if (q1.value === "correct") score++;
+            if (q2.value === "correct") score++;
+            if (q3.value === "correct") score++;
+            if (q4.value === "correct") score++;
+            if (q5.value === "correct") score++;
+
+            let percentage = (score / totalQuestions) * 100;
+
+            const resultsBox = document.getElementById("results-box");
+            resultsBox.style.display = "block";
+            
+            if (percentage >= 80) {
+                resultsBox.style.backgroundColor = "#e8f4f8";
+                resultsBox.style.border = "1px solid #0077b6";
+                resultsBox.innerHTML = `<h3>Great Job! 🎉</h3><p>You scored <strong>${score} out of ${totalQuestions} (${percentage}%)</strong>. You have a solid grasp of web server architectures!</p>`;
+            } else {
+                resultsBox.style.backgroundColor = "#fff3cd";
+                resultsBox.style.border = "1px solid #ffeeba";
+                resultsBox.innerHTML = `<h3>Good Effort! 📚</h3><p>You scored <strong>${score} out of ${totalQuestions} (${percentage}%)</strong>. Review the topic pages and try again!</p>`;
+            }
+        }
+
+        function resetQuiz() {
+            const resultsBox = document.getElementById("results-box");
+            resultsBox.style.display = "none";
+            resultsBox.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
